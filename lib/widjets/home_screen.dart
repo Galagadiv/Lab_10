@@ -15,11 +15,25 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Message'),
-          content: Text(message),
+          // Додаємо зображення замість заголовку
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.network(
+                'https://emojiisland.com/cdn/shop/products/Robot_Emoji_Icon_abe1111a-1293-4668-bdf9-9ceb05cff58e_large.png?v=1571606090',
+                height: 100,
+              ),
+              const SizedBox(height: 20),
+              Text(
+                message,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -84,8 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   );
+
+                  if (result != null && result is String) {
+                    await _showDialog(result);
+                  }
                 },
-                child: Text('Preview'),
+                child: const Text('Preview'),
               ),
             ),
           ],

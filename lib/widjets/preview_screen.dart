@@ -17,11 +17,11 @@ class PreviewScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
+            // Повернення результату за замовчуванням
             Navigator.pop(context, "Don't know what to say");
           },
         ),
       ),
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,6 +36,7 @@ class PreviewScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    // Повертаємо текст 'Cool!' при натисканні
                     Navigator.pop(context, 'Cool!');
                   },
                   child: const Text('Ok'),
@@ -43,6 +44,7 @@ class PreviewScreen extends StatelessWidget {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
+                    // Повертаємо текст 'Let’s try something else' при натисканні
                     Navigator.pop(context, 'Let’s try something else');
                   },
                   child: const Text('Cancel'),
